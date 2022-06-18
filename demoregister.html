@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+           #gear{
+            width: 100px;
+            height: 100px;
+            margin-left: 150px;
+           }
+           #gear>img{
+            width: 150px;
+           }
+
+           #signin{
+            width: 330px;
+            height: 400px;
+            margin-left: 700px;
+            padding-top: 0px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            margin-top: -50px;
+        }
+        .innerbox{
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            margin-top: 25px;
+            text-align: left;
+            font-weight: bolder;
+            padding-left: 10px;
+       }
+       .innerbox>div{
+        display: flex;
+        
+       }
+       .innerbox>div>p{
+        padding-top: 5px;
+        margin-left: 20px;
+        color: grey;
+       }
+hr{
+        border-color: yellow;
+        background-color: yellow;
+        height: 1px;
+  }
+     input{
+        margin-bottom: 10px;
+        width: 280px;
+        height: 20px;
+        
+    }
+    button{
+        height: 12px;
+        margin-top: 20px;
+        margin-right: 0px;
+        }
+    .keep_me{
+        display: flex;
+        font-size: 12px;
+        margin-right: 50px;
+        font-weight: lighter;
+        margin-top: -10px;
+
+    }
+    
+    .keep_me>input{
+        margin-left: -0px;
+        margin-top: 15px;
+        width: 20px;
+    }
+    .keep_me>input :hover{
+        color: blue;
+    }
+    .forget_pass{
+        font-weight: lighter;
+        font-size: 12px;
+        margin-top: -15px;
+    }
+    .inp{
+        background-color: yellow;
+        text-align: center;
+        font-weight: bolder;
+        height: 30px;
+      }
+      #connect{
+        font-weight: lighter;
+        padding-left: 80px;
+        margin-top: -20px;
+     }
+     #copyrigth{
+        width: 150px;
+        height: 20px;
+        padding-top: 90px;
+        display: flex;
+        margin: auto;
+        justify-content: space-between;
+        }
+        #copyrigth img{
+            width: 40px;
+            height: 15px;
+        }
+        #end{
+            width: 100%;
+            text-align: center;
+            padding-bottom: 20px;
+            font-weight: lighter;
+            font-size: 12px;
+
+        }
+        #top{
+            margin-right: 50px;
+        }
+        #reg_btn{
+        background-color: yellow;
+        text-align: center;
+        font-weight: bolder;
+        height: 30px;
+        width: 280px;
+        }
+
+        #sig{
+            height: 20px;
+            margin-left: 0px;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            border: 0px;
+            background-color: transparent;
+            color: grey;
+        }
+        #sig:hover{
+            color: black;
+            cursor: pointer;
+        }
+        .innerbox>div>h4{
+            margin-left: 10px;
+        }
+</style>
+</head>
+<body>
+    <div  id="gear">
+        <img src="https://uidesign.gbtcdn.com/GB/images/promotion/2019/a_evan/Gearbest/logo_gearbest.png"
+         alt="comany logo">
+    </div>
+    <div id="signin">
+       <div>   
+        <div class="innerbox">
+        <div>   
+        <a href="http://127.0.0.1:5500/Demo-Project/singin.html" target="_blank"><button id="sig">SING IN</button></a>
+        <h4 >REGISTER <br> <hr></h4>
+    </div>
+    <form>
+        <input id="email" type="email" placeholder="Email">
+        <input id="creat_password" type="password" placeholder="Creat Password">
+        <input id="re_type" type="password" placeholder="Re-type Password">
+        <div class="keep_me">
+            <input type="checkbox">
+            <p style="color: black;">I agree to gearbest <u>Terms and conditions</u> and <u> Privacy Police.</u></p>
+        </div>
+        <div class="forget_pass">
+            <p style="color: rgb(250, 164, 6);">Tips: To maximize online security, please do not reuse <br> passwords or choose easy to guess ines on gearbest.</p>
+        </div>
+        
+            <button id="reg_btn" type="submit">Register</button>
+        
+    </form>
+
+    <div id="connect">
+    <p>or connect via</p>
+    </div>
+    <i style="margin-left: 130px;" class="fa-brands fa-google"></i>
+</div>
+</div>
+</div>
+
+    <div id="copyrigth">
+        <img src="https://css.gbtcdn.com/imagecache/gbw/img/site/money_back2@.png"
+         alt="error">
+        <img src="https://css.gbtcdn.com/imagecache/gbw/img/site/mcafee_secure@.png"
+         alt="error">
+        <img src="https://css.gbtcdn.com/imagecache/gbw/img/site/paypal@.png"
+         alt="error">
+    </div>
+    <div id="end"><p>Copyright 2014.2022 Gearbest.com All Rights Reserved.</p></div>
+
+</body>
+</html>
+<script>
+    let form= document.querySelector("form");
+    let userdata=JSON.parse(localStorage.getItem("userData")) || [];
+    form.addEventListener("submit",function(e){
+        e.preventDefault();
+        let data={
+            email:form.email.value,
+            password:form.creat_password.value,
+            re_password:form.re_type.value,
+        }
+        console.log(data,'entered data')
+        if(checkEmails(data.email)===true){
+            const dataModified={email:data.email,password:data.password}
+           localStorage.setItem("userData",JSON.stringify(dataModified));
+           window.location.href="demosignin.html";
+        }else{
+            alert("Account Already Exists.");
+        }
+    })
+
+
+    // 
+    function checkEmails(email){
+        console.log(userdata,'localstorage')
+        return Object.values(userdata).includes(email) ? false : true
+        // if(filtered.length >0){
+        //     return false;
+        // }else{
+        //     return true;
+        // }
+    }
+</script>
